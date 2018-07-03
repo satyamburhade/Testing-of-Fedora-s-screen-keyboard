@@ -1,0 +1,12 @@
+git init- To initialize particular directory to a GitHub repository
+          Go to that directory and type the command
+
+git add . - To add all the files to the staging area as there can be be many files exists where changes 	    are made but you want only to update few files so the files that are to be commited can 	    be send to the staging area and now when you will use commit then only the files in the 	    staging area will get commited
+
+
+git add filename - To add that particular file and only that file will be sended to the staging area
+
+git commit -m    -To commit all the file that are in staging area  (-a waws not used because add and commit are used seperatly)
+
+git commit -a -will commit all the files i.e any change in any files commit all (this command is the combined command of add and commit all)
+
