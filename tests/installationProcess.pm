@@ -10,106 +10,88 @@ sub run
 	send_key "ret";
 
 	assert_screen "WelcomeToFedoraScreen",10000;
-	send_key "tab";
-	send_key "ret";
+	assert_and_click "InstallToHardDrive";
 
 
 	assert_screen "InstallationLanguageSelection",10000;
 	type_string "English",100;
 
 	#To select the English as installation language
-	send_key "up";
-	send_key "tab";
-	send_key "tab";
-	send_key "tab";
-	send_key "tab";
-	send_key "ret";
-
-	assert_screen "InstallationSummary",10000;
-
-	#To select the installation partition & keeping keyboard & region default
-	wait_idle 10;
-	send_key "tab";
-        send_key "tab";
-        send_key "tab";
-        send_key "ret";
-	wait_idle 10;
-        send_key "ret";
-	wait_idle 20;
-        send_key "down";
-	send_key "down";
-        send_key "down";
-
-        send_key "right";
-
-        send_key "ret";
-       
-	#Software & other Stuff installation window
-	assert_screen "ConfigurationInstallationScreen",500;
+        assert_and_click "SelectEnglishLanguage";
+	assert_and_click "ClickContinue";
 	
-	#Wait for approx. 13 minutes to get installation complete
-	wait_idle 800;
-	
-	#After installation completed pressing Quit button
-	send_key "down";
-	send_key "down";
-	send_key "ret";
-	
-	#Back to desktop after installation
-	assert_screen "FedoraInstallation",100;
+	#Asserting Installation summary, Adding keyboard layout, Setting date & time & Setting up installation destination
+	assert_screen "InstallationSummary",100;
+	assert_and_click "ClickOnKeyboard";
+	assert_screen "SelectingKeyboardScreen";
+	assert_and_click "PlusSign";
+	type_string "English",60;
+	assert_and_click "English(Australian)";
+	assert_and_click "Add";
+	assert_and_click "Done";
+
+	#Setting up date & time
+	assert_and_click "ClickTimeAndDate";
+	assert_screen "TimeAndDateScreen";
+	assert_and_click "ClickRegion";
+	assert_and_click "SelectAsia";
+	assert_and_click "ClickCity";
+        assert_and_click "SelectKolkata";
+        assert_and_click "Done";
+	wait_idle 5;
+
+	#Choosing installation destination
+	assert_and_click "ClickInstallationDestination";
+	assert_screen "InstallationDestinationScreen";
+	assert_and_click "Done";
+
+	wait_idle 15;
+	#To begin installation
+	assert_and_click "BeginInstallation";
+	assert_screen "ConfigurationInstallationScreen",100;
+        wait_idle 900;	
+	#After installation completion
+	assert_and_click "QuitButton";
 
 	#Rebooting the system to finalize installation and creating user
 	send_key "super";
-	wait_idle 10;
-	type_string "Terminal",100;
-	wait_idle 10;
-	send_key "ret";
+	type_string "Terminal",10;
+	wait_idle 5;
+	assert_and_click "SelectTerminal";
 	wait_idle 10;
 	type_string "reboot";
 	wait_idle 10;
 	send_key "ret";
 
-	#Going through Setup screen 
+	#After rebootinh going through Setup screen 
 	assert_screen "SetupScreen",300;
-	send_key "tab";
-	send_key "tab";
-	send_key "ret";
+	assert_and_click "WelcomeNextButton";
 
 	#Priacy screen
 	assert_screen "Privacy",15;
-	wait_idle 10;
-	send_key "ret";
+	assert_and_click "PrivacyNextButton";
 
 	#Online accounts screen, we are just skipping it
 	assert_screen "OnlineAccounts",15;
-	wait_idle 10;
-	send_key "right";
-	send_key "ret";
+	assert_and_click "AccountSkipButton";
 
 	#Setting up username i.e About you screen
 	assert_screen "UserSetup",15;
 	wait_idle 10;
 	type_string "Univarsal";
-	hold_key "shift";
-	send_key "tab";
-	send_key "tab";
-	release_key "shift";
-	send_key "ret";
+	assert_and_click "UserNextButton";
+
 
 	#Password setup screen
+	assert_screen "PasswordScreen";
 	type_password "UniversalFedora";
 	send_key "tab";
 	type_password "UniversalFedora";
-	hold_key "shift";
-	send_key "tab";
-	send_key "tab";
-	release_key "shift";
-	send_key "ret";
+	assert_and_click "PasswordNextButton";
 
 	#Ready to use Fedora 28
 	assert_screen "ReadyToGo",60;
-	send_key "ret";
-
+	assert_and_click "StartUsingFedora";
 
 
 }
