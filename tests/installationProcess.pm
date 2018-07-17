@@ -49,7 +49,8 @@ sub run
 	#To begin installation
 	assert_and_click "BeginInstallation";
 	assert_screen "ConfigurationInstallationScreen",100;
-        wait_idle 900;	
+	#wait 12 min approx to complete installation
+       	wait_idle 750;	
 	#After installation completion
 	assert_and_click "QuitButton";
 
