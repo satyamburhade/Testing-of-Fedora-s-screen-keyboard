@@ -24,6 +24,7 @@ sub run {
     assert_and_click "ClickCloseOption";
     #Now open any editor 
     send_key "super";
+    wait_idle 5;
     type_string "gedit";
     send_key "ret";
     wait_idle 10;
