@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "SettingsScreen"
+  ],
+  "area": [
+    {
+      "xpos": 3,
+      "ypos": 32,
+      "width": 1017,
+      "height": 39,
+      "type": "match"
+    }
+  ],
+  "properties": []
+}
