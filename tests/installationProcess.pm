@@ -29,15 +29,6 @@ sub run
 	assert_and_click "English(Australian)";
 	assert_and_click "Add";
 	assert_and_click "Done";
-
-	#Setting up date & time
-	assert_and_click "ClickTimeAndDate";
-	assert_screen "TimeAndDateScreen";
-	assert_and_click "ClickRegion";
-	assert_and_click "SelectAsia";
-	assert_and_click "ClickCity";
-        assert_and_click "SelectKolkata";
-        assert_and_click "Done";
 	wait_idle 5;
 
 	#Choosing installation destination
@@ -50,7 +41,7 @@ sub run
 	assert_and_click "BeginInstallation";
 	assert_screen "ConfigurationInstallationScreen",100;
 	#wait 12 min approx to complete installation
-       	wait_idle 900;	
+       	wait_idle 800;	
 	#After installation completion
 	assert_and_click "QuitButton";
 
