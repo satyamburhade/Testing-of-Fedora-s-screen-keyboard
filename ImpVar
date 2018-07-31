@@ -1,0 +1,6 @@
+build --Fedora-Rawhide-20180714.n.0
+currel   == 28
+IMAGETYPE 	dvd-ostree
+PREVREL 	27
+RAWREL 	29
+SUBVARIANT 	AtomicHost

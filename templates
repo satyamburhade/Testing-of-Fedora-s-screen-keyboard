@@ -24,7 +24,7 @@
 
                                     },
 
-                      test_suite => { name => "installationProcess" },
+                      test_suite => { name => "installationprocess" },
 
                     },
 
@@ -48,7 +48,7 @@
 
                                     },
 
-                      test_suite => { name => "OnScreenKeyboard" },
+                      test_suite => { name => "onscreenkeyboard" },
 
                     },
 		],
@@ -99,6 +99,8 @@
                       settings  => [
 
                         { key => "CANNED", value => "1" },
+			{ key => "CURREL", value => "28"},
+			
 
                         { key => "PACKAGE_SET", value => "default" },
 
@@ -122,7 +124,7 @@
 
                     {
 
-                      name => "installationProcess",
+                      name => "installationprocess",
 
                       settings => [
 
@@ -137,13 +139,13 @@
                     
                     {
 
-                      name => "OnScreenKeyboard",
+                      name => "onscreenkeyboard",
 			
                       settings => [
 
-	          { key => "POSTINSTALL", value => "OnScreenKeyboard" },
+	          { key => "POSTINSTALL", value => "onscreenkeyboard" },
 
-                  { key => "START_AFTER_TEST", value => "installationProcess" },
+                  { key => "START_AFTER_TEST", value => "installationprocess" },
 
                   { key => "BOOTFROM", value => "c" },
 

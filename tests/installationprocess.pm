@@ -85,16 +85,26 @@ sub run
 	assert_screen "ReadyToGo",60;
 	assert_and_click "StartUsingFedora";
 
+	#Logging in 
+	assert_screen "LoginScree",400;
+	assert_and_click "ClickUnversalAccess";
+	wait_idle 10;
+	type_password "UniversalFedora";
+	assert_and_click "SignInButton";
+	assert_screen "DesktopAfterLogin",100;
+
 	#Power off the system
 	wait_idle 10;
 	send_key "super";
+	wait_idle 5;
         type_string "Terminal",10;
         wait_idle 5;
         assert_and_click "SelectTerminal";
-        wait_idle 20;
+        wait_idle 10;
         type_string "poweroff";
         wait_idle 10;
         send_key "ret";
+	wait_idle 200;
 
 
 

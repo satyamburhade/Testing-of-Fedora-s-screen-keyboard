@@ -1,0 +1,4 @@
+build --Fedora-Rawhide-20180714.n.0
+currel   == 28
+IMAGETYPE 	dvd-ostree
+RAWREL 	29
