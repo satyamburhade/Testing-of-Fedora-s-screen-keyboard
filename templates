@@ -1,0 +1,161 @@
+#!/usr/share/openqa/script/load_templates
+{
+ 
+  JobTemplates => [
+
+                    
+
+
+                    {
+
+                      machine    => { name => "64bit" },
+
+                      prio       => 50,
+
+                      product    => {
+
+                                      arch    => "x86_64",
+
+                                      distri  => "fedoratestingusingopenqa",
+
+                                      flavor  => "Fedora28",
+
+                                      version => "*",
+
+                                    },
+
+                      test_suite => { name => "installationProcess" },
+
+                    },
+
+
+                    
+                    {
+
+                      machine    => { name => "64bit" },
+
+                      prio       => 10,
+
+                      product    => {
+
+                                      arch    => "x86_64",
+
+                                      distri  => "fedoratestingusingopenqa",
+
+                                      flavor  => "Fedora28",
+
+                                      version => "*",
+
+                                    },
+
+                      test_suite => { name => "OnScreenKeyboard" },
+
+                    },
+		],
+
+  Machines     => [
+
+                    {
+
+                      backend   => "qemu",
+
+                      name      => "64bit",
+
+                      settings  => [
+
+                        { key => "QEMUCPU", value => "Nehalem" },
+
+                        { key => "QEMUCPUS", value => "2"},
+
+                        { key => "QEMUVGA", value => "qxl"},
+
+                        { key => "QEMURAM", value => "2048"},
+
+                        { key => "PART_TABLE_TYPE", value => "mbr"},
+
+                        { key => "WORKER_CLASS", value => "qemu_x86_64" },
+
+                        { key => "QEMU_VIRTIO_RNG", value => "1"}
+
+                      ],
+
+                    },
+
+		],
+
+  Products     => [
+
+                    
+                    {
+
+                      arch      => "x86_64",
+
+                      distri    => "fedoratestingusingopenqa",
+
+                      flavor    => "Fedora28",
+
+                      name      => "",
+
+                      settings  => [
+
+                        { key => "CANNED", value => "1" },
+
+                        { key => "PACKAGE_SET", value => "default" },
+
+                        { key => "DESKTOP", value => "gnome" },
+
+                        { key => "TEST_TARGET", value => "ISO" }
+
+                                   ],
+
+                      version   => "*",
+
+                    },
+
+                 ],
+
+     
+
+
+
+  TestSuites   => [
+
+                    {
+
+                      name => "installationProcess",
+
+                      settings => [
+
+                        { key => "PACKAGE_SET", value => "default" },
+
+                        { key => "STORE_HDD_1", value => "disk_%FLAVOR%_%MACHINE%.qcow2" },
+
+                      ],
+
+                    },
+
+                    
+                    {
+
+                      name => "OnScreenKeyboard",
+			
+                      settings => [
+
+	          { key => "POSTINSTALL", value => "OnScreenKeyboard" },
+
+                  { key => "START_AFTER_TEST", value => "installationProcess" },
+
+                  { key => "BOOTFROM", value => "c" },
+
+                  { key => "HDD_1", value => "disk_%FLAVOR%_%MACHINE%.qcow2" },
+
+                      ],
+
+                    },
+
+               
+
+                    
+         ],
+
+}

@@ -41,7 +41,7 @@ sub run
 	assert_and_click "BeginInstallation";
 	assert_screen "ConfigurationInstallationScreen",100;
 	#wait 12 min approx to complete installation
-       	wait_idle 800;	
+       	wait_idle 900;	
 	#After installation completion
 	assert_and_click "QuitButton";
 
@@ -50,7 +50,7 @@ sub run
 	type_string "Terminal",10;
 	wait_idle 5;
 	assert_and_click "SelectTerminal";
-	wait_idle 10;
+	wait_idle 20;
 	type_string "reboot";
 	wait_idle 10;
 	send_key "ret";
@@ -60,16 +60,16 @@ sub run
 	assert_and_click "WelcomeNextButton";
 
 	#Priacy screen
-	assert_screen "Privacy",15;
+	assert_screen "Privacy",25;
 	assert_and_click "PrivacyNextButton";
 
 	#Online accounts screen, we are just skipping it
-	assert_screen "OnlineAccounts",15;
+	assert_screen "OnlineAccounts",25;
 	assert_and_click "AccountSkipButton";
 
 	#Setting up username i.e About you screen
-	assert_screen "UserSetup",15;
-	wait_idle 10;
+	assert_screen "UserSetup",25;
+	wait_idle 20;
 	type_string "Univarsal";
 	assert_and_click "UserNextButton";
 
@@ -84,6 +84,18 @@ sub run
 	#Ready to use Fedora 28
 	assert_screen "ReadyToGo",60;
 	assert_and_click "StartUsingFedora";
+
+	#Power off the system
+	wait_idle 10;
+	send_key "super";
+        type_string "Terminal",10;
+        wait_idle 5;
+        assert_and_click "SelectTerminal";
+        wait_idle 20;
+        type_string "poweroff";
+        wait_idle 10;
+        send_key "ret";
+
 
 
 }

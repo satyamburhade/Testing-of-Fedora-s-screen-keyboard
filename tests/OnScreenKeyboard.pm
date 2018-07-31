@@ -3,7 +3,7 @@ use strict;
 use testapi;
 
 sub run {
-    my $START_AFTER_TEST="installationProcess.pm";
+    
     #Starting the on screen keyboard from settings
     assert_screen "LoginScreen",300;
     assert_and_click "ClickUniversalAccount";
